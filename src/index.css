@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-neon-green: #00FF00;
+  --color-neon-red: #FF0000;
+  --color-ink: #050505;
+  --color-paper: #E4E3E0;
+}
+
+@layer base {
+  body {
+    @apply bg-ink text-paper font-mono overflow-x-hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-ink;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-800;
+  }
+}
+
+@layer utilities {
+  .brutalist-border {
+    @apply border border-zinc-800;
+  }
+  
+  .neon-text-green {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  }
+
+  .neon-text-red {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  }
+
+  .marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
